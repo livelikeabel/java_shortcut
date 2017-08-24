@@ -1,4 +1,4 @@
-package java_shortcut;
+package studentinfo;
 
 import static org.junit.Assert.*;
 

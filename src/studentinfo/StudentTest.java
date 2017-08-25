@@ -1,10 +1,10 @@
 package studentinfo;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
-public class StudentTest {
+import junit.framework.TestCase;
+
+public class StudentTest extends TestCase {
 	@Test
 	public void testCreate() {
 		final String firstStudentName = "Jane Doe";

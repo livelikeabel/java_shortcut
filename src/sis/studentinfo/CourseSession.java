@@ -1,4 +1,4 @@
-package studentinfo;
+package sis.studentinfo;
 
 import java.util.*;
 
@@ -9,12 +9,7 @@ public class CourseSession {
 	private ArrayList<Student> students = new ArrayList<Student>();
 	private Date startDate;
 	
-	CourseSession(String department, String number) {
-		this.department = department;
-		this.number = number;
-	}
-	
-	CourseSession(String department, String number, Date startDate) {
+	public CourseSession(String department, String number, Date startDate) {
 		this.department = department;
 		this.number = number;
 		this.startDate = startDate;

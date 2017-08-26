@@ -2,16 +2,11 @@ package sis.report;
 
 import sis.studentinfo.CourseSession;
 import sis.studentinfo.Student;
+import static sis.report.ReportConstant.NEWLINE;
+import static sis.report.ReportConstant.ROSTER_REPORT_HEADER;
+import static sis.report.ReportConstant.ROSTER_REPORT_FOOTER;
 
 public class RosterReporter {
-	static final String NEWLINE =
-		System.getProperty("line.separator");
-	static final String ROSTER_REPORT_HEADER =
-		"Student" + NEWLINE +
-		"-" + NEWLINE;
-	static final String ROSTER_REPORT_FOOTER =
-		NEWLINE + "# students = ";
-	
 	private CourseSession session;
 	
 	RosterReporter(CourseSession session) {

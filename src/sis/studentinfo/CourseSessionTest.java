@@ -1,7 +1,6 @@
 package sis.studentinfo;
 
 import java.util.Date;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -13,7 +12,7 @@ public class CourseSessionTest extends TestCase {
 
 	@Before
 	public void setUp() {
-		startDate = new DateUtil().createDate(2003, 1, 6);
+		startDate = DateUtil.createDate(2003, 1, 6);
 		session = new CourseSession("ENGL", "101", startDate);
 	}
 
@@ -41,8 +40,20 @@ public class CourseSessionTest extends TestCase {
 
 	@Test
 	public void testCourseDates() throws Exception {
-		Date sixteenWeeksOut = new DateUtil().createDate(2003, 4, 25);
+		Date sixteenWeeksOut = DateUtil.createDate(2003, 4, 25);
 		assertEquals(sixteenWeeksOut, session.getEndDate());
 	}
-
+	
+	@Test
+	public void testCount() throws Exception {
+		CourseSession.resetCount();
+		createCourseSession();
+		assertEquals(1, CourseSession.getCount());
+		createCourseSession();
+		assertEquals(2, CourseSession.getCount());
+	}
+	
+	private CourseSession createCourseSession() {
+		return new CourseSession("ENGL", "101", startDate);
+	}
 }

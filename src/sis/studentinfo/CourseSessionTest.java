@@ -13,7 +13,7 @@ public class CourseSessionTest extends TestCase {
 	@Before
 	public void setUp() {
 		startDate = DateUtil.createDate(2003, 1, 6);
-		session = new CourseSession("ENGL", "101", startDate);
+		session = CourseSession.create("ENGL", "101", startDate);
 	}
 
 	@Test
@@ -54,6 +54,6 @@ public class CourseSessionTest extends TestCase {
 	}
 	
 	private CourseSession createCourseSession() {
-		return new CourseSession("ENGL", "101", startDate);
+		return CourseSession.create("ENGL", "101", startDate);
 	}
 }

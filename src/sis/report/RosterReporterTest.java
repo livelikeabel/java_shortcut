@@ -15,7 +15,7 @@ public class RosterReporterTest extends TestCase {
 	@Test
 	public void testRosterReport() {
 		CourseSession session =
-			new CourseSession("ENGL", "101",
+			CourseSession.create("ENGL", "101",
 				DateUtil.createDate(2003, 1, 6));
 		
 		session.enroll(new Student("A"));

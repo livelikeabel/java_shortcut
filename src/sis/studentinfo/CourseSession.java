@@ -10,11 +10,18 @@ public class CourseSession {
 	private Date startDate;
 	private static int count;
 	
-	public CourseSession(String department, String number, Date startDate) {
+	private CourseSession(String department, String number, Date startDate) {
 		this.department = department;
 		this.number = number;
 		this.startDate = startDate;
-		CourseSession.incrementCount();
+	}
+	
+	public static CourseSession create(
+			String department, 
+			String number, 
+			Date startDate) {
+		incrementCount();
+		return new CourseSession(department, number, startDate);
 	}
 
 	public String getDepartment() {
@@ -65,5 +72,6 @@ public class CourseSession {
 	private static void incrementCount() {
 		count = count + 1;
 	}
+
 }
 	

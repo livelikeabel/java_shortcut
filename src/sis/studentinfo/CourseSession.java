@@ -5,10 +5,10 @@ import java.util.*;
 public class CourseSession {
 	private String department;
 	private String number;
-	private int numberOfStudents = 0;
 	private ArrayList<Student> students = new ArrayList<Student>();
 	private Date startDate;
 	private static int count;
+	private int numberOfCredits;
 	
 	private CourseSession(String department, String number, Date startDate) {
 		this.department = department;
@@ -35,9 +35,13 @@ public class CourseSession {
 	public int getNumberOfStudents() {
 		return students.size();
 	}
+	
+	void setNumberOfCredits(int numberOfCredits) {
+		this.numberOfCredits = numberOfCredits;
+	}
 
 	public void enroll(Student student) {
-		numberOfStudents = numberOfStudents + 1;
+		student.addCredits(numberOfCredits);
 		students.add(student);
 	}
 

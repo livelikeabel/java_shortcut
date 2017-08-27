@@ -1,10 +1,13 @@
 package sis.studentinfo;
 
+
 import org.junit.Test;
 
 import junit.framework.TestCase;
 
 public class StudentTest extends TestCase {
+	private static final double GRADE_TOLERANCE = 0.05;
+	
 	@Test
 	public void testCreate() {
 		final String firstStudentName = "Jane Doe";
@@ -44,4 +47,31 @@ public class StudentTest extends TestCase {
 		student.setState("MD");
 		assertFalse(student.isInState());
 	}
+	
+	@Test
+	public void testCalculateGpa() throws Exception {
+		Student student = new Student("a");
+		assertGpa(student, 0.0);
+		student.addGrade("A");
+		assertGpa(student, 4.0);
+		student.addGrade("B");
+		assertGpa(student, 3.5);
+		student.addGrade("C");
+		assertGpa(student, 3.0);
+		student.addGrade("D");
+		assertGpa(student, 2.5);
+		student.addGrade("F");
+		assertGpa(student, 2.0);
+	}
+	
+	private void assertGpa(Student student, double expectedGpa) {
+		assertEquals(expectedGpa, student.getGpa(), GRADE_TOLERANCE);
+	}
+	
+	
+	
+	
+	
+	
+	
 }
